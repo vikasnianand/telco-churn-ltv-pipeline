@@ -1,0 +1,15 @@
+data/raw/*
+data/clean/*
+data/rejected/*
+logs/*
+.env
+*.db
+__pycache__/
+.ipynb_checkpoints/
+.DS_Store
+.~*.twbr
+
+!data/raw/.gitkeep
+!data/clean/.gitkeep
+!data/rejected/.gitkeep
+!logs/.gitkeep
