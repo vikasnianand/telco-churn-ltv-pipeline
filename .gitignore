@@ -13,3 +13,5 @@ __pycache__/
 !data/clean/.gitkeep
 !data/rejected/.gitkeep
 !logs/.gitkeep
+data/*.xlsx
+
