@@ -1,12 +1,12 @@
 # Customer Churn & Lifetime Value — Telco
 
-![Python](https://img.shields.io/badge/Python-FFB6C1?style=for-the-badge&logo=python&logoColor=white)
-![Pandas](https://img.shields.io/badge/Pandas-B5EAD7?style=for-the-badge&logo=pandas&logoColor=white)
-![scikit--learn](https://img.shields.io/badge/scikit--learn-C7CEEA?style=for-the-badge&logo=scikitlearn&logoColor=white)
-![Jupyter](https://img.shields.io/badge/Jupyter-FFDAC1?style=for-the-badge&logo=jupyter&logoColor=white)
-![SQLite](https://img.shields.io/badge/SQLite-E2F0CB?style=for-the-badge&logo=sqlite&logoColor=white)
-![Tableau](https://img.shields.io/badge/Tableau-FF9AA2?style=for-the-badge&logo=tableau&logoColor=white)
-![GitHub](https://img.shields.io/badge/GitHub-D4A5A5?style=for-the-badge&logo=github&logoColor=white)
+![Python](https://img.shields.io/badge/Python-E07A9E?style=for-the-badge&logo=python&logoColor=white)
+![Pandas](https://img.shields.io/badge/Pandas-5FA893?style=for-the-badge&logo=pandas&logoColor=white)
+![scikit--learn](https://img.shields.io/badge/scikit--learn-7B82C5?style=for-the-badge&logo=scikitlearn&logoColor=white)
+![Jupyter](https://img.shields.io/badge/Jupyter-E8975D?style=for-the-badge&logo=jupyter&logoColor=white)
+![SQLite](https://img.shields.io/badge/SQLite-9BBF65?style=for-the-badge&logo=sqlite&logoColor=white)
+![Tableau](https://img.shields.io/badge/Tableau-E0636F?style=for-the-badge&logo=tableau&logoColor=white)
+![GitHub](https://img.shields.io/badge/GitHub-A17E7E?style=for-the-badge&logo=github&logoColor=white)
 
 ## Dashboard
 
