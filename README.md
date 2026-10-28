@@ -1,5 +1,10 @@
 # Customer Churn & Lifetime Value — Telco
 
+## Dashboard
+
+![Telco Churn Dashboard](docs/dashboard_screenshot.png)
+
+
 A pipeline that validates raw subscriber data, predicts which customers are
 likely to leave, and turns that prediction into a dollar figure: **how much
 revenue is actually at risk, and exactly which customers to call first.**
