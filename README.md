@@ -8,6 +8,10 @@
 ![Tableau](https://img.shields.io/badge/Tableau-E0636F?style=for-the-badge&logo=tableau&logoColor=white)
 ![GitHub](https://img.shields.io/badge/GitHub-A17E7E?style=for-the-badge&logo=github&logoColor=white)
 
+## 📄 Project Report
+
+[view my report!](./project_2_report.md)
+
 ## Dashboard
 
 ![Telco Churn Dashboard](docs/dashboard_screenshot.png)
