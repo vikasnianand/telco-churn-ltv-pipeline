@@ -8,7 +8,7 @@
 ![Tableau](https://img.shields.io/badge/Tableau-E0636F?style=for-the-badge&logo=tableau&logoColor=white)
 ![GitHub](https://img.shields.io/badge/GitHub-A17E7E?style=for-the-badge&logo=github&logoColor=white)
 
-[view my report!](./Project2_styled.html)
+## 📄 [view my report!](https://vikasnianand.github.io/telco-churn-ltv-pipeline/project_2_report.html)
 
 ## Dashboard
 
