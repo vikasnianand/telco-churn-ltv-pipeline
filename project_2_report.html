@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>project 2: telco churn prediction</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 60px 50px;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            color: #0f3460;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        h2 {
+            font-size: 1.8em;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            color: #0f3460;
+            font-weight: 700;
+            border-bottom: 3px solid #e94560;
+            padding-bottom: 10px;
+        }
+
+        h3 {
+            font-size: 1.3em;
+            margin-top: 25px;
+            margin-bottom: 15px;
+            color: #16213e;
+            font-weight: 600;
+        }
+
+        p {
+            margin-bottom: 15px;
+            font-size: 1.05em;
+            color: #2a2a2a;
+        }
+
+        strong {
+            color: #e94560;
+            font-weight: 600;
+        }
+
+        ul {
+            margin-left: 25px;
+            margin-bottom: 20px;
+        }
+
+        li {
+            margin-bottom: 10px;
+            font-size: 1.05em;
+            color: #2a2a2a;
+        }
+
+        code {
+            background: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            color: #d63384;
+            font-size: 0.95em;
+        }
+
+        pre {
+            background: #1a1a1a;
+            color: #00ff00;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin-bottom: 20px;
+            font-size: 0.95em;
+            font-family: 'Courier New', monospace;
+        }
+
+        .highlight-box {
+            background: #e8f4f8;
+            padding: 20px;
+            border-left: 5px solid #0f3460;
+            margin-bottom: 20px;
+            border-radius: 4px;
+        }
+
+        .divider {
+            border: none;
+            height: 2px;
+            background: linear-gradient(to right, transparent, #ddd, transparent);
+            margin: 40px 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+        }
+
+        table th {
+            background: #0f3460;
+            color: white;
+            padding: 12px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        table td {
+            padding: 12px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        table tr:hover {
+            background: #f9f9f9;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 30px 20px;
+            }
+            h1 {
+                font-size: 1.8em;
+            }
+            h2 {
+                font-size: 1.4em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>project 2: telco churn prediction</h1>
+
+        <hr class="divider">
+
+        <h2>problem → solution</h2>
+        <p><strong>problem:</strong> telecom company loses customers every month. they don't know who's leaving until they're already gone.</p>
+        <p><strong>solution:</strong> build a machine learning model that predicts churn BEFORE it happens, so the company can act.</p>
+
+        <hr class="divider">
+
+        <h2>how it works</h2>
+        <pre>raw customer data (messy)
+→ validate (remove garbage)
+→ transform (create signals)
+→ model (learn patterns)
+→ load (predict & export)
+→ manager sees: "1,200 at-risk customers, call them"</pre>
+
+        <hr class="divider">
+
+        <h2>the pipeline: what each stage does</h2>
+        <table>
+            <tr>
+                <th>stage</th>
+                <th>job</th>
+                <th>output</th>
+            </tr>
+            <tr>
+                <td><strong>validate</strong></td>
+                <td>remove bad data</td>
+                <td>9,800 clean rows (from 10,000)</td>
+            </tr>
+            <tr>
+                <td><strong>transform</strong></td>
+                <td>create features (signals)</td>
+                <td>5 features per customer that predict churn</td>
+            </tr>
+            <tr>
+                <td><strong>model</strong></td>
+                <td>learn from 4,000 old customers</td>
+                <td>trained model with 85% accuracy on test data</td>
+            </tr>
+            <tr>
+                <td><strong>load</strong></td>
+                <td>predict on 10,000 current customers</td>
+                <td>high/medium/low risk groups ready to act</td>
+            </tr>
+        </table>
+
+        <hr class="divider">
+
+        <h2>what i realized building this</h2>
+
+        <h3>realization 1: features are the difference between blind and seeing</h3>
+        <p><strong>without features:</strong></p>
+        <pre>raw data: signup_date=2023-01-15, bill=$29.99, tickets=12
+model: ??? can't see a pattern</pre>
+
+        <p><strong>with features:</strong></p>
+        <pre>months_as_customer=24, support_tickets=12, days_inactive=71
+model: "i learned this pattern = churn"</pre>
+
+        <p>features turn facts into insights.</p>
+
+        <h3>realization 2: test on new data or your model is lying</h3>
+        <p>if you test on old data the model saw during training:</p>
+        <ul>
+            <li>model says: "i remember customer 100, they stayed"</li>
+            <li>not actually learning, just memorizing</li>
+        </ul>
+
+        <p>if you test on new data:</p>
+        <ul>
+            <li>model says: "customer 4,001, i've never seen you, but you match the churn pattern i learned"</li>
+            <li>actually learning</li>
+        </ul>
+
+        <p>train/test split = the difference between memorizing and understanding.</p>
+
+        <h3>realization 3: simple beats complex</h3>
+        <p>could use fancy neural networks. chose logistic regression instead.</p>
+        <p><strong>why?</strong></p>
+        <ul>
+            <li>explains itself ("high support tickets matter most for churn")</li>
+            <li>works on small data (4,000 customers enough)</li>
+            <li>fast (seconds vs hours)</li>
+            <li>85% accuracy is good enough</li>
+        </ul>
+        <p>complex model at 87% accuracy not worth explaining to a manager.</p>
+
+        <hr class="divider">
+
+        <h2>numbers that matter</h2>
+        <pre>customers analyzed: 10,000
+model accuracy: 85%
+high-risk identified: 1,200 customers
+estimated revenue at risk: $3.6M
+revenue saved if 30% retain: $1.1M
+cost of automated calls: $50K
+net value: $1.05M</pre>
+
+        <hr class="divider">
+
+        <h2>what the model learned</h2>
+        <p>customers who churn have:</p>
+        <ul>
+            <li><strong>high support tickets</strong> (frustrated)</li>
+            <li><strong>long inactive periods</strong> (disengaged)</li>
+            <li><strong>plan downgrades</strong> (losing interest)</li>
+            <li><strong>low spending</strong> (low value = easy to drop)</li>
+        </ul>
+        <p>customers who stay have opposite signals.</p>
+
+        <hr class="divider">
+
+        <h2>if i built this in production</h2>
+        <ul>
+            <li>confirm churn definition with business (60% threshold? 50%? 70%?)</li>
+            <li>validate on real data (synthetic data has fake errors)</li>
+            <li>automate the pipeline (daily predictions, not manual runs)</li>
+            <li>track outcomes (did calling high-risk customers actually save them?)</li>
+            <li>iterate the model (feedback improves predictions)</li>
+        </ul>
+
+        <hr class="divider">
+
+        <h2>what this shows (interview angle)</h2>
+        <div class="highlight-box">
+            <p><strong>not:</strong> "i trained a model"</p>
+            <p><strong>instead:</strong> "i identified that the company loses customers invisibly. i built a system to predict churn with 85% accuracy, identify 1,200 at-risk customers worth $3.6M, and give the company the data to save $1.1M. the model is simple enough to explain to a non-technical manager."</p>
+            <p>that's the difference between data science and business impact.</p>
+        </div>
+    </div>
+</body>
+</html>
