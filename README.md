@@ -24,7 +24,7 @@ making targeted interventions highly effective.
 
 ## Dashboard : Overall
 
-![Telco Churn Dashboard](docs/dashboard_screenshot.png)
+![Telco Churn Dashboard](./Overall_Dashboard.png)
 
 
 A pipeline that validates raw subscriber data, predicts which customers are
