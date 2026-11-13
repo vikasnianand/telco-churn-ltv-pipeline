@@ -10,27 +10,6 @@
 
 ## 📄 [view my report!](https://vikasnianand.github.io/telco-churn-ltv-pipeline/project_2_report.html)
 
-## Dashboard: Late Delivery Impact on Revenue
-
-This dashboard identifies that **10.5% of Olist orders are delivered late**, 
-representing significant lost revenue. The analysis reveals that **Home (16.7%)** 
-and **Furniture (13.5%)** categories have the highest late delivery rates and 
-should be the priority for operational improvements.
-
-![Late Delivery Impact Dashboard](./Dashboard.png)
-
-**Key Insight:** Late deliveries are concentrated in just a few categories, 
-making targeted interventions highly effective.
-
-## Dashboard : Overall
-
-![Telco Churn Dashboard](./Overall_Dashboard.png)
-
-
-A pipeline that validates raw subscriber data, predicts which customers are
-likely to leave, and turns that prediction into a dollar figure: **how much
-revenue is actually at risk, and exactly which customers to call first.**
-
 ## The business problem
 
 A subscription business (here: a telecom provider) loses customers every
